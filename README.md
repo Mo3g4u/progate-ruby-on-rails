@@ -26,5 +26,5 @@ Loading development environment (Rails 5.0.3)
   SQL (0.3ms)  INSERT INTO "posts" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "aaa"], ["created_at", "2022-10-10 13:44:47.148716"], ["updated_at", "2022-10-10 13:44:47.148716"]]
    (6.8ms)  commit transaction
 => true
-[3] pry(main)>
+
 ```
