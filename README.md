@@ -17,6 +17,8 @@ http://localhost:3000/home/top
 
 $ rails g model post content:text
 $ rails db:migrate
+
+
 $ rails console
 Loading development environment (Rails 5.0.3)
 [1] pry(main)> post = Post.new(content: "aaa")
@@ -28,3 +30,4 @@ Loading development environment (Rails 5.0.3)
 => true
 
 ```
+
