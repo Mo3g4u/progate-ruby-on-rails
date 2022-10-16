@@ -42,7 +42,23 @@ irb(main):010:0> posts = Post.all
 [#<Post:0x00007f2572a966d8 id: 1, content: "aaa", created_at: Thu, 13 Oct 2022 13:25:28.574698000 UTC +00:00, updated_at: Thu, 13 Oct 2022 13:25:28.574698000 UTC +00:00>,
 ...
 
+
 irb(main):005:0> quit
+
+$ rails g model User name:string email:string
+$ rails db:migrate
+$ rails console
+Loading development environment (Rails 7.0.4)
+irb(main):001:0> user = User.new(name:"にんじゃわんこ",email:"wanko@prog-8.com")
+=> #<User:0x00007fe0400505c8 id: nil, name: "にんじゃわんこ", email: "wanko@prog-8.com", created_at: nil, updated_at: nil>
+irb(main):002:0> user.save
+  TRANSACTION (0.1ms)  begin transaction
+  User Create (0.3ms)  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "にんじゃわんこ"], ["email", "wanko@prog-8.com"], ["created_at", "2022-10-16 02:31:27.207029"], ["updated_at", "2022-10-16 02:31:27.207029"]]
+  TRANSACTION (10.8ms)  commit transaction
+=> true
+irb(main):003:0> quit
+
+$ rails g controller users index
 
 ```
 
