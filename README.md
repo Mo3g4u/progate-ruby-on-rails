@@ -47,6 +47,9 @@ irb(main):005:0> quit
 ```
 
 ## memo 
+
+### lesson4のlink_toでmethod postを指定してもgetになってしまった
+
 lesson4 の```show.html.rb```の以下の箇所
 ```ruby
   <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
@@ -109,3 +112,14 @@ Appending: pin_all_from "app/javascript/controllers", under: "controllers"
 ```ruby
   <%= link_to("削除", "/posts/#{@post.id}/destroy", data: { turbo_method: :post }) %>
 ```
+
+
+### lesson5でrails7ではedit.html.erbにエラーメッセージが表示されなかった。
+
+- [【Rails】Rails7.0でバリデーションのエラーメッセージが表示されない時の解決法](https://qiita.com/P-man_Brown/items/862503a638801fea01e7)
+
+```
+Rails7.0からデフォルトでTurboが導入されており、バリデーションのエラーメッセージを表示させるためには上記の記述を追加する必要があるようです。
+```
+
+Turboとは？
