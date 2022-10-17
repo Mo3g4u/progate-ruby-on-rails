@@ -60,6 +60,22 @@ irb(main):003:0> quit
 
 $ rails g controller users index
 
+データベースに変更を加える手順
+- マイグレーションファイルのみを作成する
+- マイグレーションファイルの内容をデータベースに反映させる
+
+$ rails g migration add_image_name_to_users
+できたファイを編集
+$ rails db:migrate
+
+ファイルの作成は元からあるFileクラスを使用
+$ rails console
+Loading development environment (Rails 5.0.3)
+[1] pry(main)> File.write("public/sample.txt", "Hello World")
+=> 11
+[2] pry(main)> /opt/progate/bin/rails:16:in `system': Interrupt
+        from /opt/progate/bin/rails:16:in `run_in_app'
+        from /opt/progate/bin/rails:59:in `<main>'
 ```
 
 ## memo 

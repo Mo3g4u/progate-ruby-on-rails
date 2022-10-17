@@ -8,9 +8,11 @@
               <%= message %>
             </div>
           <% end %>
-        <%= form_tag("/users/#{@user.id}/update") do %>
+        <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
         <p>ユーザー名</p>
         <input type="text" name="name" value="<%= @user.name %>">
+        <p>画像</p>
+        <input type="file" name="image">
         <p>メールアドレス</p>
         <!-- emailを初期値として表示してください -->
         <input type="text" name="email" value="<%= @user.email %>">
