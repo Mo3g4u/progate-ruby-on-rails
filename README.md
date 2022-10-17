@@ -68,7 +68,7 @@ $ rails g migration add_image_name_to_users
 できたファイを編集
 $ rails db:migrate
 
-ファイルの作成は元からあるFileクラスを使用
+ファイルの作成
 $ rails console
 Loading development environment (Rails 5.0.3)
 [1] pry(main)> File.write("public/sample.txt", "Hello World")
@@ -76,6 +76,11 @@ Loading development environment (Rails 5.0.3)
 [2] pry(main)> /opt/progate/bin/rails:16:in `system': Interrupt
         from /opt/progate/bin/rails:16:in `run_in_app'
         from /opt/progate/bin/rails:59:in `<main>'
+
+
+パスワードカラムの追加
+$ rails g migration add_password_to_users
+$ rails db:migrate
 ```
 
 ## memo 
@@ -155,3 +160,36 @@ Rails7.0からデフォルトでTurboが導入されており、バリデーシ�
 ```
 
 Turboとは？
+
+
+### lesson8でのapplication_controller.rb書き方
+
+これがお手本の書き方。これだとRails7では動かんかった
+
+```ruby
+class ApplicationController < ActionController::Base
+  # before_actionにset_current_userメソッドを指定してください
+      before_action :set_current_user
+
+  # set_current_userメソッドを定義してください
+    def set_current_user
+        @current_user = User.find_by(id: session[:user_id])
+    end
+
+end
+
+```
+
+↓　変更
+
+```ruby
+class ApplicationController < ActionController::Base
+    before_action :set_current_user
+
+    private 
+
+    def set_current_user
+        @current_user = User.find_by(id: session[:user_id])
+    end
+end
+```
