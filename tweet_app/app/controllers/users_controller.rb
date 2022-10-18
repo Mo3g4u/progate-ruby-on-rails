@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update]}
 
 def ensure_correct_user
- if test
+ if @current_user.id != params[:id].to_i
     flash[:notice] = "権限がありません"
     redirect_to("/posts/index")
  end
