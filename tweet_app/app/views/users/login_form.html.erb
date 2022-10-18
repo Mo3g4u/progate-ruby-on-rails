@@ -3,12 +3,12 @@
     <div class="form-heading">ログイン</div>
     <div class="form users-form">
       <div class="form-body">
-        <%= form_tag("/login") do %>
         <% if @error_message %>
             <div class="form-error">
                 <%= @error_message %>
             </div>
         <% end %>
+        <%= form_tag("/login") do %>
         <p>メールアドレス</p>
         <input type="text" name="email" value="<%= @email %>">
         <p>パスワード</p>
