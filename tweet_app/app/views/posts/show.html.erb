@@ -11,6 +11,17 @@
       <div class="post-time">
         <%= @post.created_at %>
       </div>
+
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        <%= link_to("/likes/#{@post.id}/destroy", data: { turbo_method: :post }) do %>
+          <span class="fa fa-heart liked-btn"></span><%= @likes_count %>
+        <% end %>
+      <% else %>
+        <%= link_to("/likes/#{@post.id}/create", data: { turbo_method: :post }) do %>
+        <span class="fa fa-heart unliked-btn"></span>
+        <% end %>
+      <% end %>
+
       <% if @post.user_id == @current_user.id %>
       <div class="post-menus">
           <%= link_to("編集", "/posts/#{@post.id}/edit") %>

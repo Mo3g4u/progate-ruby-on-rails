@@ -81,6 +81,11 @@ Loading development environment (Rails 5.0.3)
 パスワードカラムの追加
 $ rails g migration add_password_to_users
 $ rails db:migrate
+
+
+postsテーブルにuser_idカラムを追加する
+$ rails g migration add_user_id_to_posts
+$ rails db:migrate
 ```
 
 ## memo 
