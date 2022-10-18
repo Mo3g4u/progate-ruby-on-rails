@@ -86,6 +86,27 @@ $ rails db:migrate
 postsテーブルにuser_idカラムを追加する
 $ rails g migration add_user_id_to_posts
 $ rails db:migrate
+
+
+likeテーブルを作成する
+$ rails g model Like user_id:integer post_id:integer
+$ rails db:migrate
+
+
+gemとは、RubyやRailsでプログラミングをする際に「よく使う機能」をパッケージ化したものです。
+今回はbcryptという「ハッシュ化するgem」を使います。
+Gemfileに追加して
+$ bundle install
+
+
+password_digestカラムを追加してpasswordカラムを消す
+$ rails g migration change_users_columns
+$ rails db:migrate
+
+password_digestカラムにハッシュ化されたパスワードを保存するためには、今まで通りpasswordに値を代入します。
+こうすることで、has_secure_passwordによってpasswordに代入された値がハッシュ化され、password_digestカラムに保存されます。
+このため、既にあるpasswordに関するコードを変更する必要はありません。
+
 ```
 
 ## memo 
